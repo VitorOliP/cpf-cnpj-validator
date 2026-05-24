@@ -30,36 +30,36 @@ Aplicação web desenvolvida com Streamlit para validação e geração de docum
 ```text
 .
 ├── .dockerignore
-├── Dockerfile
-├── docker-compose.yaml
-├── src
-│   ├── HOME.py
-│   ├── pages
-│   │   ├── 1_VALIDADOR_CPF.py
-│   │   ├── 2_VALIDADOR_CNPJ.py
-│   │   ├── 3_GERADOR_CPF.py
-│   │   ├── 4_GERADOR_CNPJ.py
-│   │   └── 5_GERADOR_CNPJ_ALFANUM.py
-│   └── utils
-│       ├── cpf.py
-│       └── cnpj.py
 ├── .gitignore
+├── Dockerfile
 ├── README.md
-└── requirements.txt
+├── docker-compose.yaml
+├── requirements.txt
+└── src
+    ├── HOME.py
+    ├── pages
+    │   ├── 1_VALIDADOR_CPF.py
+    │   ├── 2_VALIDADOR_CNPJ.py
+    │   ├── 3_GERADOR_CPF.py
+    │   ├── 4_GERADOR_CNPJ.py
+    │   └── 5_GERADOR_CNPJ_ALFANUM.py
+    └── utils
+        ├── cnpj.py
+        └── cpf.py
 ```
 
 ### Organização dos Arquivos
 
 | Arquivo | Descrição |
 |----------|------------|
-| `HOME.py` | Página inicial da aplicação |
-| `1_VALIDADOR_CPF.py` | Interface para validação de CPF |
-| `2_VALIDADOR_CNPJ.py` | Interface para validação de CNPJ |
-| `3_GERADOR_CPF.py` | Interface para geração de CPF |
-| `4_GERADOR_CNPJ.py` | Interface para geração de CNPJ numérico |
-| `5_GERADOR_CNPJ_ALFANUM.py` | Interface para geração de CNPJ alfanumérico |
-| `utils/cpf.py` | Implementação das regras de CPF |
-| `utils/cnpj.py` | Implementação das regras de CNPJ |
+| `src/HOME.py` | Página inicial da aplicação |
+| `src/pages/1_VALIDADOR_CPF.py` | Interface para validação de CPF |
+| `src/pages/2_VALIDADOR_CNPJ.py` | Interface para validação de CNPJ |
+| `src/pages/3_GERADOR_CPF.py` | Interface para geração de CPF |
+| `src/pages/4_GERADOR_CNPJ.py` | Interface para geração de CNPJ numérico |
+| `src/pages/5_GERADOR_CNPJ_ALFANUM.py` | Interface para geração de CNPJ alfanumérico |
+| `src/utils/cpf.py` | Implementação das regras de CPF |
+| `src/utils/cnpj.py` | Implementação das regras de CNPJ |
 
 ## Execução Local
 
@@ -72,14 +72,14 @@ cd cpf-cnpj-validator
 
 ### 2. Crie um ambiente virtual
 
-Linux/macOS:
+**Linux/macOS**
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
 ```
 
-Windows:
+**Windows**
 
 ```powershell
 python -m venv .venv
@@ -142,8 +142,6 @@ docker compose down
 
 ### CPF
 
-A validação de CPF contempla:
-
 - Remoção de caracteres não numéricos
 - Verificação do comprimento do documento
 - Rejeição de sequências repetidas
@@ -151,13 +149,20 @@ A validação de CPF contempla:
 
 ### CNPJ
 
-A validação de CNPJ contempla:
-
-- CNPJ numérico tradicional
-- CNPJ alfanumérico
+- Suporte ao CNPJ numérico tradicional
+- Suporte ao CNPJ alfanumérico
 - Cálculo dos dígitos verificadores conforme especificação oficial
-- Tratamento de caracteres de formatação
+- Tratamento automático de caracteres de formatação
 
 ## Objetivo
 
-Este projeto foi desenvolvido com fins educacionais e de demonstração técnica, servindo como referência para implementação dos algoritmos de validação e geração de documentos brasileiros em aplicações Python.
+Este projeto foi desenvolvido com fins educacionais e de demonstração técnica, servindo como referência para implementação dos algoritmos de validação e geração de documentos brasileiros utilizando Python e Streamlit.
+
+
+## Capturas de Tela
+
+### Página Inicial
+
+<p align="center">
+    <img src=".assets/home.png" alt="Página Inicial" width="900">
+</p>
