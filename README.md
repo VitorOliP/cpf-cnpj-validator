@@ -36,7 +36,7 @@ Aplicação web desenvolvida com Streamlit para validação e geração de docum
 ├── docker-compose.yaml
 ├── requirements.txt
 └── src
-    ├── HOME.py
+    ├── App.py
     ├── pages
     │   ├── 1_Validador_CPF.py
     │   ├── 2_Validador_CNPJ.py
