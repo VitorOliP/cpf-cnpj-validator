@@ -3,7 +3,7 @@ import random
 import string
 
 
-def calcular_dv1(cnpj_base: str) -> int:
+def calculate_first_dv(cnpj_base: str) -> int:
     """
     Calcula o primeiro dígito verificador (DV1) de um CNPJ.
 
@@ -18,13 +18,13 @@ def calcular_dv1(cnpj_base: str) -> int:
         int: Primeiro dígito verificador calculado.
     """
     nums = [ord(x) - 48 for x in cnpj_base]
-    pesos = list(range(5, 1, -1)) + list(range(9, 1, -1))
-    soma = sum(n * p for n, p in zip(nums, pesos))
-    resto = soma % 11
-    return 0 if resto < 2 else 11 - resto
+    weights = list(range(5, 1, -1)) + list(range(9, 1, -1))
+    soma = sum(n * p for n, p in zip(nums, weights))
+    remainder = soma % 11
+    return 0 if remainder < 2 else 11 - remainder
 
 
-def calcular_dv2(cnpj_base: str, dv1: int) -> int:
+def calculate_second_dv(cnpj_base: str, dv1: int) -> int:
     """
     Calcula o segundo dígito verificador (DV2) de um CNPJ.
 
@@ -40,13 +40,13 @@ def calcular_dv2(cnpj_base: str, dv1: int) -> int:
         int: Segundo dígito verificador calculado.
     """
     nums = [ord(x) - 48 for x in cnpj_base] + [dv1]
-    pesos = list(range(6, 1, -1)) + list(range(9, 1, -1))
-    soma = sum(n * p for n, p in zip(nums, pesos))
-    resto = soma % 11
-    return 0 if resto < 2 else 11 - resto
+    weights = list(range(6, 1, -1)) + list(range(9, 1, -1))
+    soma = sum(n * p for n, p in zip(nums, weights))
+    remainder = soma % 11
+    return 0 if remainder < 2 else 11 - remainder
 
 
-def gerar_digitos_cnpj(cnpj_base: str) -> str:
+def generate_cnpj_dv(cnpj_base: str) -> str:
     """
     Gera os dois dígitos verificadores de um CNPJ.
 
@@ -56,12 +56,12 @@ def gerar_digitos_cnpj(cnpj_base: str) -> str:
     Returns:
         str: String contendo os dois dígitos verificadores.
     """
-    dv1 = calcular_dv1(cnpj_base)
-    dv2 = calcular_dv2(cnpj_base, dv1)
+    dv1 = calculate_first_dv(cnpj_base)
+    dv2 = calculate_second_dv(cnpj_base, dv1)
     return f"{dv1}{dv2}"
 
 
-def validar_cnpj(cnpj: str) -> bool:
+def validate_cnpj(cnpj: str) -> bool:
     """
     Valida um CNPJ numérico ou alfanumérico.
 
@@ -86,12 +86,12 @@ def validar_cnpj(cnpj: str) -> bool:
     cnpj_alfanum_base = chars[:12]
 
     # NÃO converter para string numérica
-    dv = gerar_digitos_cnpj(cnpj_alfanum_base)
+    dv = generate_cnpj_dv(cnpj_alfanum_base)
 
     return chars[-2:] == dv
 
 
-def gerar_cnpj_base() -> str:
+def generate_cnpj_base() -> str:
     """
     Gera a parte base de um CNPJ numérico.
 
@@ -101,19 +101,19 @@ def gerar_cnpj_base() -> str:
     return ''.join(str(random.randint(0, 9)) for _ in range(12))
 
 
-def gerar_cnpj() -> str:
+def generate_cnpj() -> str:
     """
     Gera um CNPJ numérico válido.
 
     Returns:
         str: CNPJ válido contendo 14 caracteres numéricos.
     """
-    cnpj_base = gerar_cnpj_base()
-    dv = gerar_digitos_cnpj(cnpj_base)
+    cnpj_base = generate_cnpj_base()
+    dv = generate_cnpj_dv(cnpj_base)
     return cnpj_base + dv
 
 
-def gerar_cnpj_alfanum_base() -> str:
+def generate_cnpj_alfanum_base() -> str:
     """
     Gera a parte base de um CNPJ alfanumérico.
 
@@ -126,13 +126,31 @@ def gerar_cnpj_alfanum_base() -> str:
     return ''.join(random.choice(chars) for _ in range(12))
 
 
-def gerar_cnpj_alfanum() -> str:
+def generate_cnpj_alfanum() -> str:
     """
     Gera um CNPJ alfanumérico válido.
 
     Returns:
         str: CNPJ alfanumérico válido contendo 14 caracteres.
     """
-    cnpj_alfanum_base = gerar_cnpj_alfanum_base()
-    dv = gerar_digitos_cnpj(cnpj_alfanum_base)
+    cnpj_alfanum_base = generate_cnpj_alfanum_base()
+    dv = generate_cnpj_dv(cnpj_alfanum_base)
     return cnpj_alfanum_base + dv
+
+def format_cnpj(cnpj: str) -> str:
+    return (
+        f"{cnpj[:2]}."
+        f"{cnpj[2:5]}."
+        f"{cnpj[5:8]}/"
+        f"{cnpj[8:12]}-"
+        f"{cnpj[12:]}"
+    )
+    
+def format_cnpj_alfanum(cnpj: str) -> str:
+    return (
+        f"{cnpj[:2]}."
+        f"{cnpj[2:5]}."
+        f"{cnpj[5:8]}/"
+        f"{cnpj[8:12]}-"
+        f"{cnpj[12:]}"
+    )

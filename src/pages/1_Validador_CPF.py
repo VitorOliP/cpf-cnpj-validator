@@ -1,5 +1,5 @@
 import streamlit as st
-from utils.cpf import validar_cpf
+from utils.cpf import validate_cpf
 
 st.set_page_config(
     page_title="Validador de CPF",
@@ -7,7 +7,7 @@ st.set_page_config(
     layout="centered",
 )
 
-st.title("🪪 Validador de CPF")
+st.title("Validador de CPF")
 st.caption("Digite um CPF para verificar se ele é válido.")
 
 with st.form("cpf_form"):
@@ -32,7 +32,7 @@ if submitted:
     st.markdown("### CPF informado")
     st.code(cpf, language=None, )
 
-    if validar_cpf(cpf):
+    if validate_cpf(cpf):
         st.success("✅ CPF válido")
     else:
         st.error("❌ CPF inválido")

@@ -6,7 +6,7 @@ st.set_page_config(
     layout="centered",
 )
 
-st.title("🧾 Validador e Gerador de CPF/CNPJ")
+st.title("Validador e Gerador de CPF/CNPJ")
 
 st.markdown("""
 Bem-vindo ao **CPF/CNPJ Validator**.
@@ -22,21 +22,21 @@ with st.container(border=True):
     _, col1, col2, _ = st.columns([1, 2, 2, 1])
 
     with col1:
-        st.page_link("pages/1_VALIDADOR_CPF.py", label="🪪 Validador CPF")
+        st.page_link("pages/1_Validador_CPF.py", label="Validador CPF")
 
     with col2:
-        st.page_link("pages/2_VALIDADOR_CNPJ.py", label="🏢 Validador CNPJ")
+        st.page_link("pages/2_Validador_CNPJ.py", label="Validador CNPJ")
 
     _, col3, col4, col5, _ = st.columns([1, 2, 2, 2, 1])
 
     with col3:
-        st.page_link("pages/3_GERADOR_CPF.py", label="Gerador CPF")
+        st.page_link("pages/3_Gerador_CPF.py", label="Gerador CPF")
 
     with col4:
-        st.page_link("pages/4_GERADOR_CNPJ.py", label="Gerador CNPJ")
+        st.page_link("pages/4_Gerador_CNPJ.py", label="Gerador CNPJ")
 
     with col5:
-        st.page_link("pages/5_GERADOR_CNPJ_ALFANUM.py", label="CNPJ Alfanumérico")
+        st.page_link("pages/5_Gerador_CNPJ_ALFANUM.py", label="CNPJ Alfanumérico")
 
 st.divider()
 
@@ -44,7 +44,7 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.info("""
-#### ✅ Validadores
+#### Validadores
 
 - CPF
 - CNPJ
@@ -56,7 +56,7 @@ dígitos verificadores válidos.
 
 with col2:
     st.success("""
-#### ⚡ Geradores
+#### Geradores
 
 - CPF válido
 - CNPJ válido

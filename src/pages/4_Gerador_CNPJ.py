@@ -1,15 +1,5 @@
 import streamlit as st
-from utils.cnpj import gerar_cnpj
-
-
-def formatar_cnpj(cnpj: str) -> str:
-    return (
-        f"{cnpj[:2]}."
-        f"{cnpj[2:5]}."
-        f"{cnpj[5:8]}/"
-        f"{cnpj[8:12]}-"
-        f"{cnpj[12:]}"
-    )
+from utils.cnpj import generate_cnpj, format_cnpj
 
 
 st.set_page_config(
@@ -18,7 +8,7 @@ st.set_page_config(
     layout="centered",
 )
 
-st.title("🏢 Gerador de CNPJ")
+st.title("Gerador de CNPJ")
 st.caption(
     "Gere números de CNPJ válidos com máscara."
 )
@@ -32,7 +22,7 @@ with st.container(border=True):
 
     if st.session_state.cnpj_gerado:
         cnpj_exibido = (
-            formatar_cnpj(st.session_state.cnpj_gerado)
+            format_cnpj(st.session_state.cnpj_gerado)
             if aplicar_mascara
             else st.session_state.cnpj_gerado
         )
@@ -48,5 +38,5 @@ with st.container(border=True):
         "Gerar",
         use_container_width=True,
     ):
-        st.session_state.cnpj_gerado = gerar_cnpj()
+        st.session_state.cnpj_gerado = generate_cnpj()
         st.rerun()

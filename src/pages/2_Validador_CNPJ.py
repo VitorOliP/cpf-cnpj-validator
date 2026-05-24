@@ -1,5 +1,5 @@
 import streamlit as st
-from utils.cnpj import validar_cnpj
+from utils.cnpj import validate_cnpj
 
 st.set_page_config(
     page_title="Validador de CNPJ",
@@ -7,7 +7,7 @@ st.set_page_config(
     layout="centered",
 )
 
-st.title("🏢 Validador de CNPJ")
+st.title("Validador de CNPJ")
 st.caption("Digite um CNPJ para verificar se ele é válido.")
 
 with st.form("cnpj_form"):
@@ -32,7 +32,7 @@ if submitted:
     st.markdown("### CNPJ informado")
     st.code(cnpj, language=None)
 
-    if validar_cnpj(cnpj):
+    if validate_cnpj(cnpj):
         st.success("✅ CNPJ válido")
     else:
         st.error("❌ CNPJ inválido")

@@ -1,5 +1,5 @@
 import streamlit as st
-from utils.cpf import gerar_cpf
+from utils.cpf import generate_cpf
 
 
 def formatar_cpf(cpf: str) -> str:
@@ -17,7 +17,7 @@ st.set_page_config(
     layout="centered",
 )
 
-st.title("🪪 Gerador de CPF")
+st.title("Gerador de CPF")
 st.caption(
     "Gere números de CPF válidos com máscara."
 )
@@ -46,5 +46,5 @@ with st.container(border=True):
         "Gerar",
         use_container_width=True,
     ):
-        st.session_state.cpf_gerado = gerar_cpf()
+        st.session_state.cpf_gerado = generate_cpf()
         st.rerun()
