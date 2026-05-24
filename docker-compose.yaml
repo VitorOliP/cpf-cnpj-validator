@@ -1,0 +1,8 @@
+services:
+  app:
+    build: .
+    image: cpf-cnpj-validator:latest
+    container_name: cpf-cnpj-validator
+    ports:
+      - "8501:8501"
+    restart: unless-stopped

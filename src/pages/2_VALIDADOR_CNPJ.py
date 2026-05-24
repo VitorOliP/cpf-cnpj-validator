@@ -13,7 +13,7 @@ st.caption("Digite um CNPJ para verificar se ele é válido.")
 with st.form("cnpj_form"):
     cnpj = st.text_input(
         "CNPJ",
-        placeholder="00.000.000/0000-00 ou 00000000000000",
+        placeholder="00.000.000/0000-00, 00000000000000",
         max_chars=18,
         help="Aceita CNPJ com ou sem pontuação.",
     )
