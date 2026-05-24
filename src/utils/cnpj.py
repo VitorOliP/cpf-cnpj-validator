@@ -75,16 +75,11 @@ def validate_cnpj(cnpj: str) -> bool:
     Returns:
         bool: True se o CNPJ for válido, False caso contrário.
     """
-    NUMERIC_PATTERN = re.compile(r'^(\d{14}|\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2})$')
-    
-    ALPHANUM_PATTERN = re.compile(
-    r'^([A-Z0-9]{14}|[A-Z0-9]{2}\.[A-Z0-9]{3}\.[A-Z0-9]{3}/[A-Z0-9]{4}-\d{2})$'
+    CNPJ_PATTERNS = re.compile(
+    r'^([A-Z0-9]{12}\d{2}|[A-Z0-9]{2}\.[A-Z0-9]{3}\.[A-Z0-9]{3}/[A-Z0-9]{4}-\d{2})$'
     )
-
-    cnpj = str(cnpj).upper()
-    if not(
-        NUMERIC_PATTERN.fullmatch(cnpj) or ALPHANUM_PATTERN.fullmatch(cnpj)
-    ):
+    
+    if not(CNPJ_PATTERNS.fullmatch(str(cnpj).upper())):
         return False
     
     chars = ''.join(re.compile(r'[A-Z0-9]').findall(str(cnpj).upper()))
