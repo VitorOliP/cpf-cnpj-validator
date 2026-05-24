@@ -38,11 +38,11 @@ Aplicação web desenvolvida com Streamlit para validação e geração de docum
 └── src
     ├── HOME.py
     ├── pages
-    │   ├── 1_VALIDADOR_CPF.py
-    │   ├── 2_VALIDADOR_CNPJ.py
-    │   ├── 3_GERADOR_CPF.py
-    │   ├── 4_GERADOR_CNPJ.py
-    │   └── 5_GERADOR_CNPJ_ALFANUM.py
+    │   ├── 1_Validador_CPF.py
+    │   ├── 2_Validador_CNPJ.py
+    │   ├── 3_Gerador_CPF.py
+    │   ├── 4_Gerador_CNPJ.py
+    │   └── 5_Gerador_CNPJ_ALFANUM.py
     └── utils
         ├── cnpj.py
         └── cpf.py
@@ -53,11 +53,11 @@ Aplicação web desenvolvida com Streamlit para validação e geração de docum
 | Arquivo | Descrição |
 |----------|------------|
 | `src/HOME.py` | Página inicial da aplicação |
-| `src/pages/1_VALIDADOR_CPF.py` | Interface para validação de CPF |
-| `src/pages/2_VALIDADOR_CNPJ.py` | Interface para validação de CNPJ |
-| `src/pages/3_GERADOR_CPF.py` | Interface para geração de CPF |
-| `src/pages/4_GERADOR_CNPJ.py` | Interface para geração de CNPJ numérico |
-| `src/pages/5_GERADOR_CNPJ_ALFANUM.py` | Interface para geração de CNPJ alfanumérico |
+| `src/pages/1_Validador_CPF.py` | Interface para validação de CPF |
+| `src/pages/2_Validador_CNPJ.py` | Interface para validação de CNPJ |
+| `src/pages/3_Gerador_CPF.py` | Interface para geração de CPF |
+| `src/pages/4_Gerador_CNPJ.py` | Interface para geração de CNPJ numérico |
+| `src/pages/5_Gerador_CNPJ_ALFANUM.py` | Interface para geração de CNPJ alfanumérico |
 | `src/utils/cpf.py` | Implementação das regras de CPF |
 | `src/utils/cnpj.py` | Implementação das regras de CNPJ |
 
